@@ -1,0 +1,39 @@
+<div class="login-container">
+
+  <h2>Acesso Restrito</h2>
+
+  <form (ngSubmit)="logar()" #loginForm="ngForm" novalidate>
+
+    <label for="email">E-mail</label>
+    <input 
+      type="email" 
+      id="email" 
+      name="email" 
+      placeholder="exemplo@email.com" 
+      required
+      [(ngModel)]="email"
+      #emailInput="ngModel"
+    />
+    <div *ngIf="emailInput.invalid && emailInput.touched" style="color: red; font-size: 0.9rem;">
+      E-mail é obrigatório e deve ser válido.
+    </div>
+
+    <label for="senha">Senha</label>
+    <input 
+      type="password" 
+      id="senha" 
+      name="senha" 
+      placeholder="Digite sua senha" 
+      required
+      [(ngModel)]="senha"
+      #senhaInput="ngModel"
+    />
+    <div *ngIf="senhaInput.invalid && senhaInput.touched" style="color: red; font-size: 0.9rem;">
+      Senha é obrigatória.
+    </div>
+
+    <button type="submit" [disabled]="loginForm.invalid">Entrar</button>
+
+  </form>
+
+</div>

@@ -1,0 +1,126 @@
+.admin-produtos {
+  padding: 1rem ; /* apenas vertical */
+  overflow-x: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #222;
+  color: #eee;
+  border-radius: 0px;
+  box-shadow: 0 0 12px rgba(229, 9, 20, 0.4);
+  width: 100%;
+  box-sizing: border-box; /* garante que padding não ultrapasse */
+}
+
+
+/* Tabela */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  color: #eee;
+}
+
+/* Cabeçalho e células */
+th, td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #444; /* borda mais escura e sutil */
+  word-wrap: break-word;
+}
+
+/* Cabeçalho */
+th {
+  background-color: #333;
+  font-weight: 600;
+}
+
+/* Miniaturas */
+.miniatura {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  border: 1px solid #555;
+}
+
+/* Botões */
+button {
+  margin-right: 0.5rem;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+button:first-of-type {
+  background-color: #E50914; /* vermelho vibrante */
+}
+
+button:last-of-type {
+  background-color: #444; /* cinza escuro para apagar */
+}
+
+button:first-of-type:hover {
+  background-color: #B0060F;
+}
+
+button:last-of-type:hover {
+  background-color: #222;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Modal content */
+/* Modal content */
+.modal-content {
+  background: transparent; /* remove o fundo branco */
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: none; /* remove sombra para não parecer borda */
+  color: #fff; /* se precisar ajustar texto para ficar legível */
+}
+
+
+.btn-cadastrar {
+  background-color: #E50914 !important;
+  color: white !important;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(229, 9, 20, 0.3);
+   margin-bottom: 1.5rem;
+}
+
+
+.btn-cadastrar:hover {
+  background-color: rgba(229, 9, 20, 0.3);
+}
+
+.btn-cadastrar:active {
+  background-color: #8A050A;
+  box-shadow: 0 1px 4px rgba(229, 9, 20, 0.2);
+}
+
+.btn-cadastrar:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.5);
+}

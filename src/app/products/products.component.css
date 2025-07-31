@@ -1,0 +1,172 @@
+.catalog-container {
+  padding: 2rem;
+  background-color: #000;
+box-shadow: 0 0 40px rgba(255, 0, 0, 0.6);
+  color: #fff;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  color: #ffffff;
+}
+
+p, span, li {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* Grade de produtos */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.link-detalhes{
+  
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+h3{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+
+/* Preço */
+/* Preço */
+.preco {
+  margin: 0;
+  padding: 0;
+  color: #ccc;
+  font-weight: 500;
+  font-size: 1.00rem;
+}
+
+/* Botão de pedido (WhatsApp) */
+.btn-whatsapp {
+  background-color: #E50914;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background-color: #B0060F;
+}
+
+/* Banner */
+.container-banner {
+  width:auto;
+  height: auto;
+  margin-right:;
+  overflow: hidden;
+  background-color: #000;
+  border-radius: 10px;
+box-shadow: 0 0 40px rgba(255, 0, 0, 0.6);
+
+  }
+
+
+.container-banner > img {
+  height: 80%;
+  width: 90%;
+  justify-content: center;
+
+}
+
+/* Botão flutuante (ícone) */
+.navbar-actions {
+  width: 50px;
+  height: 10%;
+  position: fixed;
+  bottom: 1px;
+  right: 20px;
+  background-color: transparent;
+  color: #FFF;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+.btn-login > img {
+  height: 50%;
+  margin-top: 15px;
+  transition: transform 0.3s ease;
+}
+
+.btn-login > img:hover {
+  transform: scale(1.10);
+}
+
+.navbar-actions .btn-login:hover {
+  background-color: transparent;
+  transform: scale(1.03);
+}
+
+
+.category {
+  display: flex;
+  gap: 1rem;
+  justify-content: center; /* centraliza os links */
+  margin: 1.5rem 0;
+}
+
+.category-section{
+
+}
+
+
+.category a {
+  position: relative; /* importante para o ::after se posicionar */
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.category a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #B0060F;
+  transition: width 0.3s ease;
+}
+
+.category a:hover {
+  color: #B0060F;
+}
+
+.category a:hover::after {
+  width: 100%;
+}

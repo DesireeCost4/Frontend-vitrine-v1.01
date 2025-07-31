@@ -1,0 +1,134 @@
+.section-wrapper {
+  background-color: #fff;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  border-radius: 12px; /* novo: bordas mais suaves */
+  min-height: 620px;
+
+
+
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  margin-top: 0;
+ font-size: clamp(2.2rem, 3vw, 2.8rem);
+  margin-bottom: 0.5rem;  color: #111;
+  font-weight: 700;
+
+}
+
+.section-header p,
+.section-description {
+  color: #555;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 50px;
+}
+
+/* Grade de produtos */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* Card de produto refinado */
+.product-card {
+  background: linear-gradient(to bottom, #fafafa, #f0f0f0);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+/* Link que engloba imagem, nome e preço */
+.link-detalhes {
+  text-decoration: none;
+  color: inherit;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1; 
+}
+
+/* Imagem do produto */
+.product-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+}
+
+/* Nome do produto */
+.link-detalhes h3 {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  text-align: center;
+}
+
+/* Preço */
+.preco {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Botão WhatsApp fora do link */
+.btn-whatsapp {
+  background-color: #d32f2f;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0 1rem 1rem 1rem;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+}
+
+.btn-whatsapp:hover {
+  background-color: #b71c1c;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .product-grid {
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

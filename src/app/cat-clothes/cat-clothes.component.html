@@ -1,0 +1,31 @@
+ 
+<div class="section-wrapper">
+  <header class="section-header">
+    <h2>Produtos em Destaque</h2>
+    <p class="section-description">Confira nossa coleção de roupas confortáveis e estilosas para você!</p>
+  </header>
+  <div class="product-grid">
+  <div class="product-card" *ngFor="let produto of produtos">
+    
+    <a [routerLink]="['/produto', produto.id]" class="link-detalhes">
+    <img *ngIf="produto.imagem" [src]="'data:image/jpeg;base64,' + produto.imagem" [alt]="produto.nome" class="product-image">
+      <h3>{{ produto.nome }}</h3>
+      <p class="preco">R$ {{ produto.preco | number:'1.2-2' }}</p>
+    </a>
+
+    <a
+      class="btn-whatsapp"
+      [href]="gerarLinkWhatsApp(produto)"
+      target="_blank"
+    >
+      Comprar agora!
+    </a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+

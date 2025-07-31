@@ -1,0 +1,67 @@
+form {
+  max-width: 440px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #222;
+  border-radius: 10px;
+box-shadow: 0 0 12px rgba(0, 0, 0, 0.3); /* preto translúcido */
+  color: #fff;
+}
+
+form h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  border: 1px solid #444;
+  background-color: #111;
+  color: #fff;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+button[type="submit"],
+button[type="button"] {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"] {
+  background-color: #E50914;
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background-color: #b0060f;
+}
+
+button[type="button"] {
+  background-color: #198754;
+  color: white;
+}
+
+button[type="button"]:hover {
+  background-color: #13693f;
+}

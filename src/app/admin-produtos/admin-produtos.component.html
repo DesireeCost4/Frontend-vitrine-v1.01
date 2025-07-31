@@ -1,0 +1,61 @@
+<div class="admin-produtos">
+
+
+   <!-- Botão para abrir o formulário de cadastro -->
+   <!-- Ao clicar, seta a variável mostrarCadastro como true, abrindo o modal -->
+  <button (click)="mostrarCadastro = true" class="btn-cadastrar">
+    Cadastrar Novo Produto
+  </button>
+
+    <!-- Tabela que lista os produtos -->
+  <table>
+    <thead>
+      <tr>
+        <!-- Cabeçalho da tabela -->
+        <th>Miniatura</th>
+        <th>Nome</th>
+        <th>ID</th>
+        <th>Estoque</th>
+        <th>Preço</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produto of produtos; trackBy: trackById">
+        <td>
+          <img
+            *ngIf="produto.imagem"
+            [src]="'data:image/jpeg;base64,' + produto.imagem"
+            [alt]="produto.nome" 
+            class="miniatura"
+          /> 
+          <!-- [ALT] Bind para o atributo alt, importante para acessibilidade -->
+        </td>
+         <!-- Botões para ações -->
+        <td>{{ produto.nome }}</td>
+        <td>{{ produto.id }}</td>
+        <td>{{ produto.estoque }}</td>
+        <td>R$ {{ produto.preco.toFixed(2) }}</td>
+        <td>
+          <button (click)="editarProduto(produto.id)">Editar</button>
+          <!-- Chama o método apagarProduto passando o id do produto -->
+          <button (click)="apagarProduto(produto.id)">Apagar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+   <!-- Modal para o formulário de cadastro/edição de produto -->
+  <!-- *ngIf exibe o modal somente quando mostrarCadastro for true -->
+<div class="modal-overlay" *ngIf="mostrarCadastro" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+  <div class="modal-content">
+
+          <!-- Componente app-admin recebe o id do produto a ser editado via Input [produtoId] -->
+      <!-- E emite evento fechar que é tratado pelo método fecharCadastro -->
+    <app-admin
+      [produtoId]="produtoSelecionadoId" (fechar)="fecharCadastro()">
+    </app-admin>
+  </div>
+</div>
+
+</div>

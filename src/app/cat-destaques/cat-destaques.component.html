@@ -1,0 +1,37 @@
+<div class="section-wrapper">
+  <header class="section-header">
+    <h2>Produtos em Destaque</h2>
+    <p class="section-description">Confira nossas novidades!</p>
+  </header>
+
+
+
+<div class="product-grid">
+  <div class="product-card" *ngFor="let produto of produtos">
+    
+    <a [routerLink]="['/produto', produto.id]" class="link-detalhes">
+    <img *ngIf="produto.imagem" [src]="'data:image/jpeg;base64,' + produto.imagem" [alt]="produto.nome" class="product-image">
+      <h3>{{ produto.nome }}</h3>
+      <p class="preco">R$ {{ produto.preco | number:'1.2-2' }}</p>
+    </a>
+
+    <a
+      class="btn-whatsapp"
+      [href]="gerarLinkWhatsApp(produto)"
+      target="_blank"
+    >
+      Comprar agora!
+    </a>
+  </div>
+</div>
+
+<div class="whatsapp-float">
+  <p class="whatsapp-title">WhatsApp</p>
+  <a href="https://wa.me/558391898632?text=Olá! Vim pelo site e gostaria de tirar uma dúvida sobre os produtos da Trunk Vendas." target="_blank" rel="noopener noreferrer">
+  <p class="whatsapp-subtitle">Aqui!</p>
+
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://wa.me/558391898632%3Ftext%3DOl%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20os%20produtos%20da%20Trunk%20Vendas." alt="QR Code WhatsApp">
+  </a> 
+  <p class="whatsapp-title">Escaneie com o celular</p>
+
+</div>

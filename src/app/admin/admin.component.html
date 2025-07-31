@@ -1,0 +1,58 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="productForm" enctype="multipart/form-data">
+  
+  <!-- Campo Nome -->
+  <label>
+    Nome:
+    <input type="text" formControlName="nome" required />
+  </label>
+
+  <!-- Campo Categoria com opções -->
+  <label>
+    Categoria:
+    <select formControlName="categoria" required>
+      <option value="Suplemento">Suplemento</option>
+      <option value="Vestuário">Vestuário</option>
+      <option value="Calçado">Calçado</option>
+      <option value="Acessorio">Acessório</option>
+    </select>
+  </label>
+
+  <!-- Botão para gerar descrição automática, só habilitado se nome e categoria estiverem válidos -->
+  <button type="button" (click)="gerarDescricao()" 
+    [disabled]="productForm.get('nome')?.invalid || productForm.get('categoria')?.invalid">
+    Gerar Descrição Automática
+  </button>
+
+  <!-- Área de texto para descrição, estilizada para ocupar largura total -->
+  <label 
+    style="margin-top: 1rem; padding: 1rem; background: #f0f0f0; border-radius: 4px; color: #000; display: block;">
+    Descrição:
+    <textarea formControlName="descricao" rows="5" style="width: 100%;"></textarea>
+  </label>
+
+  <!-- Campo Estoque -->
+  <label>
+    Estoque:
+    <input type="number" formControlName="estoque" required />
+  </label>
+
+  <!-- Campo Preço -->
+  <label>
+    Preço:
+    <input type="number" step="0.01" formControlName="preco" required />
+  </label>
+
+  <!-- Campo para selecionar imagem -->
+  <label>
+    Imagem:
+    <input type="file" (change)="onFileSelected($event)" required />
+  </label>
+
+  <!-- Botões para enviar e cancelar o formulário -->
+  <button type="submit" [disabled]="productForm.invalid">Cadastrar Produto</button>
+  <button type="button" (click)="fecharCadastro()">Cancelar</button>
+
+  <!-- Mensagem de feedback, exibida quando definida -->
+  <p *ngIf="mensagem">{{ mensagem }}</p>
+
+</form>

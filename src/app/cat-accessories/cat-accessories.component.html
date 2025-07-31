@@ -1,0 +1,43 @@
+<div class="section-wrapper">
+  <!-- Cabeçalho da seção com título e descrição -->
+  <header class="section-header">
+    <h2>Produtos em Destaque</h2>
+    <p class="section-description">Confira nossa coleção de roupas confortáveis e estilosas para você!</p>
+  </header>
+
+  <!-- Grid que lista os produtos -->
+  <div class="product-grid">
+    <!-- Loop para criar um card para cada produto na lista 'produtos' -->
+    <div class="product-card" *ngFor="let produto of produtos">
+
+      <!-- Link para a página de detalhes do produto -->
+      <!-- [routerLink] cria o link dinamicamente para /produto/:id -->
+      <a [routerLink]="['/produto', produto.id]" class="link-detalhes">
+
+        <!-- Imagem do produto, mostrada só se existir -->
+        <!-- *ngIf verifica se o produto tem imagem -->
+        <!-- [src] cria a URL da imagem em base64 -->
+        <!-- [alt] atribui nome do produto para acessibilidade -->
+        <img *ngIf="produto.imagem" [src]="'data:image/jpeg;base64,' + produto.imagem" [alt]="produto.nome" class="product-image">
+
+        <!-- Nome do produto -->
+        <h3>{{ produto.nome }}</h3>
+
+        <!-- Preço formatado com duas casas decimais usando pipe number -->
+        <p class="preco">R$ {{ produto.preco | number:'1.2-2' }}</p>
+      </a>
+
+      <!-- Botão link para comprar via WhatsApp -->
+      <!-- [href] chama método gerarLinkWhatsApp(produto) que monta a URL para o WhatsApp -->
+      <!-- target="_blank" abre o link em nova aba -->
+      <a
+        class="btn-whatsapp"
+        [href]="gerarLinkWhatsApp(produto)"
+        target="_blank"
+      >
+        Comprar agora!
+      </a>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,123 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  padding: 0.5rem 1.25rem;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+}
+
+.navbar-logo {
+  flex: 1;
+}
+
+.logo-img {
+  height: 100px;
+  width: auto;
+  display: block;
+}
+
+.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 500px;
+  z-index: 10; /* para ficar acima da navbar-actions */
+}
+
+/* Como seu input não tem classe, estilizamos pelo seletor */
+.navbar-center > input[type="search"] {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 150px;
+  font-size: 1.1rem;
+  outline: none;
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  box-sizing: border-box;
+}
+
+/* Estilizando a ul dentro de navbar-center */
+.navbar-center > ul {
+  position: absolute;
+  top: 110%; /* logo abaixo do input */
+  left: 0;
+  right: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  list-style: none;
+  margin: 0;
+  color: #000;
+  font-size: 1rem;
+  z-index: 20;
+}
+
+.navbar-center > ul > li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.navbar-center > ul > li:last-child {
+  border-bottom: none;
+}
+
+.navbar-center > ul > li:hover {
+  background-color: #f0f0f0;
+}
+
+.navbar-actions {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+  }
+
+  .navbar-logo,
+  .navbar-actions {
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .navbar-center {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .navbar-center > input[type="search"] {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar-center > ul {
+    max-height: 200px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-logo {
+    display: none;
+  }
+}
