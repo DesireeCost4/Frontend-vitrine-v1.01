@@ -80,6 +80,7 @@ export class AdminComponent implements OnInit, OnChanges {
     this.http.post<{ descricao: string }>('https://trunk-vendas.onrender.com/descricao', { nome, categoria }).subscribe({
       next: (res) => {
         this.descricaoGerada = res.descricao;
+        this.productForm.patchValue({ descricao: res.descricao });
         this.mensagem = 'Descrição gerada com sucesso!';
       },
       error: (err) => {
