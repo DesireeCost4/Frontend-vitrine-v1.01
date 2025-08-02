@@ -23,15 +23,15 @@ export class DetailsProductComponent implements OnInit {
     // Extrai o parâmetro 'id' da rota atual (ex: /produtos/:id)
     this.produtoId = this.route.snapshot.paramMap.get('id')!;
 
-    // Console log para debug, para verificar o estado inicial da variável produto
-    console.log(this.produto);
 
     // Faz requisição HTTP GET para a API, buscando os dados do produto pelo ID
-    this.http.get(`${this.apiUrl}/${this.produtoId}`).subscribe({
-      // Quando a resposta chegar, atribui os dados à variável produto
-      next: (data) => this.produto = data,
-      // Em caso de erro, registra no console para facilitar debug
-      error: (err) => console.error('Erro ao carregar produto:', err)
-    });
+this.http.get(`${this.apiUrl}/${this.produtoId}`).subscribe({
+  next: (data) => {
+    this.produto = data;
+    console.log('Produto recebido:', this.produto);  // Aqui dentro, para logar quando os dados chegarem
+  },
+  error: (err) => console.error('Erro ao carregar produto:', err)
+});
+
   }
 }
