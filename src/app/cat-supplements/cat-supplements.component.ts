@@ -29,7 +29,7 @@ export class CatSupplementsComponent implements OnInit  {
   // Método do ciclo de vida Angular que roda quando o componente é inicializado
   ngOnInit() {
     // Requisição HTTP GET para pegar todos os produtos da API local
-    this.http.get<any[]>('http://localhost:5000/produtos').subscribe(data => {
+    this.http.get<any[]>('https://trunk-vendas.onrender.com/produtos').subscribe(data => {
       // Array com as categorias consideradas como suplemento (normalizadas)
       const filtroCategoriasAceitas = ['suplemento', 'suplementos'];
 

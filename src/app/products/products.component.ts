@@ -39,7 +39,7 @@ export class ProductsComponent implements OnInit {  // Implementa o ciclo de vid
   // Método executado quando o componente é inicializado
   ngOnInit() {
     // Requisição GET para buscar todos os produtos do backend
-    this.http.get<any[]>('http://localhost:5000/produtos').subscribe({
+    this.http.get<any[]>('hhttps://trunk-vendas.onrender.com/produtos').subscribe({
       next: (res) => {
         this.produtos = res;    // Salva os produtos recebidos na variável local
       },

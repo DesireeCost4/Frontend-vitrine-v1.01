@@ -20,7 +20,7 @@ export class CatClothesComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http.get<any[]>('http://localhost:5000/produtos').subscribe(data => {
+    this.http.get<any[]>('https://trunk-vendas.onrender.com/produtos').subscribe(data => {
       this.produtos = data
   .filter(produto => produto.categoria.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "") === 'vestuario')
   .slice(0, this.limit);

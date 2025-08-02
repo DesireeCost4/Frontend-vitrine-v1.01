@@ -29,7 +29,7 @@ export class CatAccessoriesComponent implements OnInit {
   // Método do ciclo de vida do Angular que roda após criação do componente
   ngOnInit() {
     // Faz uma requisição GET para pegar todos os produtos do backend
-    this.http.get<any[]>('http://localhost:5000/produtos').subscribe(data => {
+    this.http.get<any[]>('https://trunk-vendas.onrender.com/produtos').subscribe(data => {
       // Define quais nomes de categoria são considerados válidos para este componente (normalizados)
       const filtroCategoriasAceitas = ['acessorio', 'acessorios'];
 

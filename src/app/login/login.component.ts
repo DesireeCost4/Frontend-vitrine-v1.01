@@ -33,7 +33,7 @@ export class LoginComponent {
     const payload = { email: this.email, senha: this.senha };
 
     // Faz requisição para backend de login, esperando receber um token JWT
-    this.http.post<{ token: string }>('http://localhost:5000/login', payload).subscribe({
+    this.http.post<{ token: string }>('https://trunk-vendas.onrender.com/login', payload).subscribe({
       next: (res) => {
         // Se login for autorizado, grava o token na sessionStorage
         console.log('Token recebido:', res.token);

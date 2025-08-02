@@ -49,7 +49,7 @@ export class AdminComponent implements OnInit, OnChanges {
   // Função para carregar dados do produto para o formulário quando editando
   carregarProdutoParaEdicao() {
     this.editando = true;
-    this.http.get<any>(`http://localhost:5000/produtos/${this.produtoId}`).subscribe({
+    this.http.get<any>(`https://trunk-vendas.onrender.com/produtos/${this.produtoId}`).subscribe({
       next: (produto) => {
         this.productForm.patchValue({
           nome: produto.nome,
@@ -77,7 +77,7 @@ export class AdminComponent implements OnInit, OnChanges {
       return;
     }
 
-    this.http.post<{ descricao: string }>('http://localhost:5000/descricao', { nome, categoria }).subscribe({
+    this.http.post<{ descricao: string }>('https://trunk-vendas.onrender.com/descricao', { nome, categoria }).subscribe({
       next: (res) => {
         this.descricaoGerada = res.descricao;
         this.mensagem = 'Descrição gerada com sucesso!';
@@ -127,7 +127,7 @@ export class AdminComponent implements OnInit, OnChanges {
         formData.append('imagem', this.imagemSelecionada);
       }
 
-      this.http.patch<{ mensagem?: string }>(`http://localhost:5000/produtos/${this.produtoId}`, formData).subscribe({
+      this.http.patch<{ mensagem?: string }>(`https://trunk-vendas.onrender.com/produtos/${this.produtoId}`, formData).subscribe({
         next: (res) => {
           this.mensagem = res.mensagem || 'Produto atualizado com sucesso!';
           this.fecharCadastro();

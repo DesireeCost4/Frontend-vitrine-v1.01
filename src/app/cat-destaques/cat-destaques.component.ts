@@ -18,7 +18,7 @@ export class CatDestaquesComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<any[]>('http://localhost:5000/produtos').subscribe(data => {
+    this.http.get<any[]>('https://trunk-vendas.onrender.com/produtos').subscribe(data => {
       this.produtos = data
         .sort((a, b) => b.id - a.id) // ordena do mais novo (maior id) para o mais antigo
         .slice(0, this.limit); // aplica o limite

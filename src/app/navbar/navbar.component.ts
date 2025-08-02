@@ -25,7 +25,7 @@ export class NavbarComponent {
         if (termo.trim() === '') {
           return of([]); // Evita requisição com string vazia
         }
-        return this.http.get<any[]>(`http://localhost:5000/produtos?busca=${termo}`).pipe(
+        return this.http.get<any[]>(`https://trunk-vendas.onrender.com/produtos?busca=${termo}`).pipe(
           catchError(() => of([]))
         );
       })//ALTERAR FILTRO PARA LETRAS EM DIGITAÇÃO. << 27/07/2025

@@ -15,7 +15,7 @@ export class DetailsProductComponent implements OnInit {
   produto: any;        // Objeto que irá armazenar os dados do produto recebidos da API
 
   // URL base da API onde os produtos estão disponíveis
-  private apiUrl = 'http://localhost:5000/produtos';
+  private apiUrl = 'https://trunk-vendas.onrender.com/produtos';
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 

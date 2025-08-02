@@ -20,7 +20,7 @@ produtos: any[] = [];
   constructor(private http: HttpClient) {}
 
 ngOnInit(): void {
-  this.http.get<any[]>('http://localhost:5000/produtos').subscribe(data => {
+  this.http.get<any[]>('https://trunk-vendas.onrender.com/produtos').subscribe(data => {
     const filtrados = data.filter(produto => 
       produto.categoria.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "") === 'calcado'
     );

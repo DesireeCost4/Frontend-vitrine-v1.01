@@ -35,7 +35,7 @@ abrirCadastro(): void {
   }
 
   carregarProdutos(): void {
-    this.http.get<any[]>('http://localhost:5000/produtos').subscribe({
+    this.http.get<any[]>('https://trunk-vendas.onrender.com/produtos').subscribe({
       next: (res) => {
         this.produtos = res;
       },
@@ -47,7 +47,7 @@ abrirCadastro(): void {
 
   apagarProduto(id: string): void {
     if (confirm('Tem certeza que deseja apagar este produto?')) {
-      this.http.delete(`http://localhost:5000/produtos/${id}`).subscribe({
+      this.http.delete(`https://trunk-vendas.onrender.com/produtos/${id}`).subscribe({
         next: () => {
           this.produtos = this.produtos.filter(p => p.id !== id);
         },
