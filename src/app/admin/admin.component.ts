@@ -140,8 +140,26 @@ export class AdminComponent implements OnInit, OnChanges {
       });
 
     } else {
-      // Caso queira implementar criação aqui, usar POST e FormData
-      // (exemplo omitido para foco no update)
+       const formData = new FormData();
+  formData.append('nome', this.productForm.get('nome')?.value);
+  formData.append('categoria', this.productForm.get('categoria')?.value);
+  formData.append('estoque', this.productForm.get('estoque')?.value.toString());
+  formData.append('preco', this.productForm.get('preco')?.value.toString());
+  formData.append('descricao', this.descricaoGerada || this.productForm.get('descricao')?.value || '');
+  if (this.imagemSelecionada) {
+    formData.append('imagem', this.imagemSelecionada);
+  }
+
+  this.http.post<{ mensagem?: string }>('https://trunk-vendas.onrender.com/admin/produtos', formData).subscribe({
+    next: (res) => {
+      this.mensagem = res.mensagem || 'Produto cadastrado com sucesso!';
+      this.fecharCadastro();
+    },
+    error: (err) => {
+      console.error('Erro ao cadastrar produto:', err);
+      this.mensagem = 'Erro ao cadastrar produto. Tente novamente.';
+    }
+  });
     }
   }
 
