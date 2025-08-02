@@ -1,6 +1,9 @@
 <nav class="navbar">
   <div class="navbar-logo">
-    <a href="#"><img src="logo.png" alt="Logo MinhaMarca" class="logo-img"></a>
+    <a href="/"><img src="logo.png" alt="Logo MinhaMarca" class="logo-img"></a>
+    <a routerLink="/" class="inicio-link">
+  <span class="inicio-texto">Início</span>
+    </a>
   </div>
 
   <div class="navbar-center">
@@ -12,14 +15,15 @@
 
 <ul *ngIf="produtosFiltrados.length > 0">
   <li *ngFor="let produto of produtosFiltrados">
-    {{ produto.nome }} - R$ {{ produto.preco }}
+    <a [routerLink]="['/produto', produto.id]">
+      {{ produto.nome }} - R$ {{ produto.preco }}
+    </a>
   </li>
 </ul>
   </div>
 
   <div class="navbar-actions">
-      <a href="#">Inicio</a>
-
+ 
   </div>
 </nav>
 

@@ -117,7 +117,33 @@
 }
 
 @media (max-width: 768px) {
-  .navbar-logo {
+    .logo-img {
     display: none;
   }
+
+  .inicio-texto {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+}
+
+@media (min-width: 769px) {
+  .inicio-texto {
+    display: none !important;
+  }
+}
+
+
+.inicio-link {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s ease;
+}
+
+.inicio-link:hover .inicio-texto {
+  color: red;
 }

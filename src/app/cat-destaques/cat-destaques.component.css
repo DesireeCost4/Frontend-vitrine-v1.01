@@ -5,32 +5,34 @@
   padding: 2rem 1.5rem;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  border-radius: 12px; /* novo: bordas mais suaves */
+  border-radius: 12px; /* bordas suaves */
   min-height: 620px;
-
-
-
 }
 
 .section-header {
   text-align: center;
   margin-bottom: 1.5rem;
+  padding: 0 1rem; /* espaçamento lateral para telas pequenas */
 }
 
 .section-header h2 {
   margin-top: 0;
- font-size: clamp(2.2rem, 3vw, 2.8rem);
-  margin-bottom: 0.5rem;  color: #111;
+  font-size: clamp(2rem, 4vw, 2.8rem); /* ajusta entre 2rem e 2.8rem responsivamente */
+  margin-bottom: 0.5rem;
+  color: #111;
   font-weight: 700;
-
+  line-height: 1.2;
 }
 
-.section-header p,
-.section-description {
+.section-header p.section-description {
   color: #555;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem); /* fonte entre 1rem e 1.2rem */
   margin-top: 0.5rem;
-  margin-bottom: 70px;
+  margin-bottom: 3rem;
+  max-width: 600px; /* para não ficar texto muito largo */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
 }
 
 /* Grade de produtos */
@@ -54,12 +56,14 @@
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 300px;
 }
 
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
+
 /* Link que engloba imagem, nome e preço */
 .link-detalhes {
   text-decoration: none;
@@ -68,17 +72,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-grow: 1; 
+  flex-grow: 1;
 }
 
 /* Imagem do produto */
 .product-image {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  height: 180px;        /* padrão desktop */
+  object-fit: contain;  /* mostra a imagem inteira, sem cortar */
   border-radius: 8px;
+  background-color: #fff; /* opcional, evita fundo estranho se imagem tem transparência */
   margin-bottom: 0.8rem;
+  display: block;        /* remove espaços inline */
 }
+
 
 /* Nome do produto */
 .link-detalhes h3 {
@@ -121,8 +128,33 @@
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
   .product-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     padding: 0 0.5rem;
+  }
+
+  .product-card {
+    min-height: 250px;
+    padding: 0.75rem;
+  }
+
+  .product-image {
+    height: 150px;
+  }
+
+  .link-detalhes h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .preco {
+    font-size: 0.9rem;
+  }
+
+  .btn-whatsapp {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    margin: 0 0.75rem 0.75rem 0.75rem;
   }
 }
 
@@ -131,15 +163,38 @@
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+
+  .product-card {
+    min-height: 220px;
+    padding: 0.5rem;
+  }
+
+  .product-image {
+    height: 120px;
+  }
+
+  .link-detalhes h3 {
+    font-size: 0.9rem;
+  }
+
+  .preco {
+    font-size: 0.85rem;
+  }
+
+  .btn-whatsapp {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    margin: 0 0.5rem 0.5rem 0.5rem;
+  }
 }
 
-
+/* WhatsApp flutuante */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
   right: 20px;
   z-index: 999;
-  width: 200px;           /* diminui um pouco a largura */
+  width: 200px;
   background-color: #fff;
   padding: 12px;
   border-radius: 16px;
@@ -152,25 +207,19 @@
 }
 
 .whatsapp-float img {
-  width: 40%;             /* imagem um pouco maior dentro do container */
+  width: 40%;
   height: auto;
   margin: 10px 0;
 }
 
-
 .whatsapp-title {
   font-family: 'Special Elite', cursive;
   font-size: 15px;
-}
-
-.whatsapp-title {
-  font-family: 'Special Elite', cursive;
-  font-size: 15px;
-  letter-spacing: 0.12em;       /* aumenta espaçamento das letras */
-  font-weight: 400;             /* fonte mais leve */
+  letter-spacing: 0.12em;
+  font-weight: 400;
   line-height: 1.2;
-  color: #222;                  /* cor escura mais suave */
-  text-transform: uppercase;   /* deixa todas as letras maiúsculas */
+  color: #222;
+  text-transform: uppercase;
   margin: 0;
 }
 
@@ -182,7 +231,7 @@
   line-height: 1.1;
   color: #d32f2f;
   margin: 0;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.15); /* sombra suave */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
 }
 
 @media (max-width: 1450px) {
@@ -190,3 +239,45 @@
     display: none;
   }
 }
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .product-card {
+    min-height: auto; /* deixa altura livre para não forçar muito */
+    padding: 0.5rem;
+  }
+
+  .product-image {
+    height: 120px; /* imagem menor */
+  }
+
+    .section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .section-header p.section-description {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+
+  .btn-whatsapp {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    margin: 0 0.5rem 0.5rem 0.5rem;
+  }
+
+  .whatsapp-float img {
+    width: 60%; /* QR menor */
+    max-height: 120px; /* limite de altura */
+    margin: 10px auto;
+    display: block;
+  }
+}
+
+
+

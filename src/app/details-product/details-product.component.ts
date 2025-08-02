@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';  // Importa para capturar parâmetros da rota (ex: id do produto)
 import { HttpClient, HttpClientModule } from '@angular/common/http';  // Importa para fazer requisições HTTP à API
 import { CommonModule } from '@angular/common';  // Importa módulo comum do Angular (diretivas básicas)
+import { switchMap } from 'rxjs/operators'; // Para 'ouvir' a mudança de url
+
 
 @Component({
   selector: 'app-details-product',  // Selector para usar esse componente em templates
@@ -19,19 +21,18 @@ export class DetailsProductComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
-  ngOnInit() {
-    // Extrai o parâmetro 'id' da rota atual (ex: /produtos/:id)
-    this.produtoId = this.route.snapshot.paramMap.get('id')!;
-
-
-    // Faz requisição HTTP GET para a API, buscando os dados do produto pelo ID
-this.http.get(`${this.apiUrl}/${this.produtoId}`).subscribe({
-  next: (data) => {
-    this.produto = data;
-    console.log('Produto recebido:', this.produto);  // Aqui dentro, para logar quando os dados chegarem
-  },
-  error: (err) => console.error('Erro ao carregar produto:', err)
-});
-
-  }
+ngOnInit() {
+  this.route.paramMap.pipe(
+    switchMap(params => {
+      this.produtoId = params.get('id')!;
+      return this.http.get(`${this.apiUrl}/${this.produtoId}`);
+    })
+  ).subscribe({
+    next: (data) => {
+      this.produto = data;
+      console.log('Produto recebido:', this.produto);
+    },
+    error: (err) => console.error('Erro ao carregar produto:', err)
+  });
+}
 }
