@@ -26,7 +26,7 @@ export class CatDestaquesComponent implements OnInit {
   }
 
   gerarLinkWhatsApp(produto: any): string {
-    const numero = '5583999999999';
+    const numero = '5583991898632';
     const mensagem = `Olá! Gostaria de pedir o produto: ${produto.nome}, no valor de R$ ${produto.preco}`;
     return `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
   }

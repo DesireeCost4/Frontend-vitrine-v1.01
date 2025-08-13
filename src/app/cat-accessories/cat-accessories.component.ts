@@ -48,7 +48,7 @@ export class CatAccessoriesComponent implements OnInit {
     // Mensagem padrão com nome e preço do produto
     const mensagem = `Olá! Gostaria de pedir o produto: ${produto.nome}, no valor de R$ ${produto.preco}`;
     // Número do WhatsApp da loja (deve estar no formato internacional sem o '+')
-    const numero = '5583999999999';
+    const numero = '5583991898632';
     // Retorna a URL formatada para abrir a conversa no WhatsApp com a mensagem codificada
     return `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
   }

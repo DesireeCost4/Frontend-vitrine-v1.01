@@ -45,7 +45,7 @@ export class CatSupplementsComponent implements OnInit  {
   // Método para gerar um link direto para WhatsApp com uma mensagem pré-formatada para pedido
   gerarLinkWhatsApp(produto: any): string {
     const mensagem = `Olá! Gostaria de pedir o produto: ${produto.nome}, no valor de R$ ${produto.preco}`;
-    const numero = '5583999999999'; // Número do WhatsApp da loja
+    const numero = '5583991898632'; // Número do WhatsApp da loja
     // Monta a URL do WhatsApp com o texto da mensagem codificado para URL
     return `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
   }

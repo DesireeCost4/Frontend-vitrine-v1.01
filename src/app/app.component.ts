@@ -24,7 +24,7 @@ export class AppComponent {
 
   gerarLinkWhatsApp(produto: any): string {
     const mensagem = `Olá! Gostaria de pedir o produto: ${produto.nome}, no valor de R$ ${produto.preco}`;
-    const numero = '5583999999999'; // Substitua pelo número real
+    const numero = '5583991898632'; // Substitua pelo número real
     return `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
   }
 }

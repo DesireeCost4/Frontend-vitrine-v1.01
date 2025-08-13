@@ -53,7 +53,7 @@ export class ProductsComponent implements OnInit {  // Implementa o ciclo de vid
   gerarLinkWhatsApp(produto: any): string {
     // Monta mensagem simples com nome e preço do produto
     const mensagem = `Olá! Gostaria de pedir o produto: ${produto.nome}, no valor de R$ ${produto.preco}`;
-    const numero = '5583999999999'; // Número de telefone da loja para receber pedidos (substituir pelo real)
+    const numero = '5583991898632'; // Número de telefone da loja para receber pedidos (substituir pelo real)
     // Retorna URL completa com texto codificado para abrir WhatsApp direto no número com a mensagem
     return `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
   }
