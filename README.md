@@ -1,7 +1,11 @@
 # SiteNegocioLocal
 
 
-<img width="1908" height="913" alt="Screenshot_1" src="https://github.com/user-attachments/assets/6770ffc4-2da0-4b89-bf8d-daf7605053c6" />
+
+<img width="1167" height="532" alt="image" src="https://github.com/user-attachments/assets/594c2e32-817b-45a1-8d0d-4e93b8bf9bae" />
+
+
+
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
 
